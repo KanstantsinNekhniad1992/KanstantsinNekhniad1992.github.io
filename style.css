@@ -1,0 +1,43 @@
+.article {
+	max-width: 600px;
+	padding: 10px;
+	margin-bottom: 25px;
+	box-shadow: 0 1px 4px rgba(0,0,0,.04);
+	border: 1px solid rgba(0,0,0,.09);
+	border-radius: 3px;
+	background: #fff;
+}
+
+.article img {
+	max-width: 500px;
+}
+
+.author {
+	float: left;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.clearfix:after {
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+
+.date {
+	float: right;
+}
+
+.read-more-link a {
+  font-style: italic;
+}
+
+.powered-by {
+	text-align: center;
+}
+
+.powered-by a {
+	text-decoration: none;
+}
