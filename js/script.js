@@ -12,15 +12,15 @@ function getArticles () {
         method: 'GET'
     }).then((response) => {
 
-        if (response.status !== 200) {
+        if (!response.ok) {
             console.log('ajax request thrown with error: ' + response.statusText);
             return;
         }
 
-        response.json().then((result) => {
-            generateArticlesList(result.articles);
-        });
-    }).catch((error) => {
+		return response.json();
+    }).then((result) => {
+		generateArticlesList(result.articles);
+	}).catch((error) => {
         console.log('fetch error');
     });
 }
