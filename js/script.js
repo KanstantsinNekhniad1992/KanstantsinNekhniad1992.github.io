@@ -31,20 +31,24 @@ function generateArticlesList (articles) {
 		documentFragmet,
 		articlesHolder,
 		articleHTML,
-		div,
+		li,
 		compiledTemplate;
 
-	articleTemplate = document.getElementById('article-template');
 	articlesHolder = document.getElementById('articles-list');
-
-	compiledTemplate = Handlebars.compile(articleTemplate.innerHTML);
 	documentFragmet = document.createDocumentFragment();
 
 	for (let article of articles) {
-		div = document.createElement('DIV');
-		div.classList.add('article');
-		div.innerHTML = compiledTemplate(article);
-		documentFragmet.appendChild(div);
+		li = document.createElement('LI');
+		li.classList.add('article');
+		li.innerHTML = `<div class="article-source clearfix">
+							<p class="author">${article.author}</p>
+							<p class="date">Published at ${article.publishedAt}</p>
+						</div>
+						<h3 class="title">${article.title}</h3>
+						<img src='${article.urlToImage}' alt='${article.title}' />
+						<p class="description">${article.description}</p>
+						<div class="read-more-link"><a href='${article.url}'>Read more...</a></div>`;
+		documentFragmet.appendChild(li);
 	}
 
 	articlesHolder.appendChild(documentFragmet);
