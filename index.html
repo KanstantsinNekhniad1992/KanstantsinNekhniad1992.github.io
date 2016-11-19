@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 	<head>
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1">
 	<title>Front Camp ES2015</title>
-	<script src='js/handlebars-v4.0.5.js'></script>
 	<script src='js/script.js'></script>
 	<link rel="stylesheet" href="style.css" type='text/css'/>
 	</head>
@@ -11,22 +11,6 @@
 		<div class="powered-by">
 			Powered By <a href="https://newsapi.org">Newsapi.org</a>
 		</div>
-		<script id="article-template" type="text/x-handlebars-template">
-			<div class="article-source clearfix">
-				<p class="author">{{author}}</p>
-				<p class="date">Published at {{publishedAt}}</p>
-			</div>
-			<h3 class="title">
-				{{title}}
-			</h3>
-			<img src="{{urlToImage}}" alt="{{title}}" />
-			<p class="description">
-				{{description}}
-			</p>
-			<div class="read-more-link">
-				<a href="{{url}}">Read more...</a>
-			</div>
-		</script>
 	</body>
 
 </html>
