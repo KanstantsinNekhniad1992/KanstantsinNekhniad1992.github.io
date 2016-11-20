@@ -1,0 +1,29 @@
+{
+  "name": "KanstantsinNekhniad1992.github.io",
+  "version": "1.0.0",
+  "description": "FrontCamp 2016 project",
+  "main": "index.js",
+  "scripts": {
+    "build": "babel js/*.js > build/script.js --minified"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KanstantsinNekhniad1992/KanstantsinNekhniad1992.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KanstantsinNekhniad1992/KanstantsinNekhniad1992.github.io/issues"
+  },
+  "homepage": "https://github.com/KanstantsinNekhniad1992/KanstantsinNekhniad1992.github.io#readme",
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-polyfill": "^6.16.0",
+    "babel-preset-es2015": "^6.18.0",
+    "systemjs-plugin-babel": "0.0.17"
+  },
+  "dependencies": {
+    "whatwg-fetch": "^2.0.1"
+  }
+}
