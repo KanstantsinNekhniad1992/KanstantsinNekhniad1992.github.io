@@ -1,37 +1,31 @@
 /*jshint esversion: 6 */
 'use strict';
 
-const URL = 'https://newsapi.org/v1/articles?source=bbc-news&apiKey=';
-const APIKEY = '6b51303bc9c44fc49fd3973b3a1e108f';
+/**
+ * get articles by ajax request
+ * @param  {Object} options initial options
+ * @param  {String} options.url request url
+ * @param  {String} options.apiKey specific param to get artcles
+ */
+function getArticles(options) {
 
-function getArticles() {
-    fetch(URL + APIKEY, {
+    options = options || {};
+    return fetch(options.url + options.apiKey, {
         method: 'GET'
     }).then((response) => {
-
-        if (!response.ok) {
-            console.log('ajax request thrown with error: ' + response.statusText);
-            return;
-        }
-
         return response.json();
-    }).then((result) => {
-        generateArticlesList(result.articles);
-    }).catch((error) => {
-        console.log('fetch error');
     });
 }
 
+/**
+ * generate articles list template
+ * @param  {Array} articles list of articles
+ */
 function generateArticlesList(articles) {
 
-    let articleTemplate,
-        documentFragmet,
-        articlesHolder,
-        articleHTML,
-        li,
-        compiledTemplate;
+    let documentFragmet,
+        li;
 
-    articlesHolder = document.getElementById('articles-list');
     documentFragmet = document.createDocumentFragment();
 
     for (let article of articles) {
@@ -48,6 +42,10 @@ function generateArticlesList(articles) {
         documentFragmet.appendChild(li);
     }
 
-    articlesHolder.appendChild(documentFragmet);
+	return documentFragmet;
 }
-getArticles();
+
+module.exports = {
+	getArticles: getArticles,
+	generateArticlesList: generateArticlesList
+};
