@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack",
-	"dev-server": "webpack-dev-server",
-	"dev-server-hot": "webpack-dev-server --inline --hot"
+    "dev-server": "webpack-dev-server",
+    "dev-server-hot": "webpack-dev-server --inline --hot"
   },
   "repository": {
     "type": "git",
@@ -37,7 +37,8 @@
     "sass-loader": "^4.0.2",
     "style-loader": "^0.13.1",
     "systemjs-plugin-babel": "0.0.17",
-    "webpack": "^1.13.3"
+    "webpack": "^1.13.3",
+    "webpack-dev-server": "^1.16.2"
   },
   "dependencies": {
     "es6-promises": "^1.0.10",

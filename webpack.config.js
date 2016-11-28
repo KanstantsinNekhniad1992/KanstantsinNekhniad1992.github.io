@@ -3,7 +3,6 @@
 
 let webpack = require('webpack'),
     path = require('path'),
-    npmDir = path.resolve(__dirname, 'node_modules'),
     dirSource = path.resolve(__dirname, 'frontend'),
     dirBuild = path.resolve(__dirname, 'build');
 
@@ -21,7 +20,7 @@ module.exports = {
     module: {
         loaders: [{
             loader: 'babel-loader',
-            test: dirSource,
+            test: dirSource
         }, {
             test: /\.scss$/,
             exclude: ['/node_modules/'],
@@ -30,9 +29,9 @@ module.exports = {
     },
     watch: NODE_ENV === 'development',
     plugins: [
-        // new webpack.optimize.UglifyJsPlugin({
-        //     compress: NODE_ENV === 'production'
-        // }),
+         new webpack.optimize.UglifyJsPlugin({
+             compress: NODE_ENV === 'production'
+         }),
         new webpack.EnvironmentPlugin([
             "NODE_ENV"
         ]),
@@ -51,6 +50,6 @@ module.exports = {
         host: 'localhost',
         port: '4000',
         hot: true,
-        contentBase: "./",
+        contentBase: "./"
     }
 };
