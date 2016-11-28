@@ -1,5 +1,7 @@
 module.exports = function(source) {
 
+	//to use loader please move this file in node_modules/custom-json-loader
+
     this.cacheable && this.cacheable();
 
     var array;
