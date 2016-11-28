@@ -1,3 +1,16 @@
+html,
+body {
+	height: 100%;
+}
+.wrapper {
+	position: relative;
+	min-height: 100%;
+}
+
+.content {
+	padding-bottom: 20px;
+}
+
 .get-news-link {
 	font-size: 16px;
 	font-weight: bold;
@@ -9,9 +22,15 @@
 }
 
 .powered-by {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: 20px;
 	text-align: center;
 }
 
 a.powered-by {
 	text-decoration: none;
 }
+
