@@ -25,7 +25,11 @@ module.exports = {
             test: /\.scss$/,
             exclude: ['/node_modules/'],
             loaders: ["style-loader", "css-loader?sourceMap", "sass-loader?sourceMap"]
-        }]
+        }, {
+			test: /\.json$/,
+            exclude: ['/node_modules/'],
+            loaders: ["custom-json-loader"]
+		}]
     },
     watch: NODE_ENV === 'development',
     plugins: [
