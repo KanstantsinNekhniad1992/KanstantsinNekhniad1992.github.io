@@ -3,6 +3,7 @@
 
 let getNewsLink = document.getElementById('get-news-link'),
     config = require('./config');
+require('./test.json');
 
 getNewsLink.addEventListener('click', function(e) {
     e.preventDefault();
