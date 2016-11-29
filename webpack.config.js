@@ -24,14 +24,19 @@ module.exports = {
         }, {
             test: /\.scss$/,
             exclude: ['/node_modules/'],
-            loaders: ["style-loader", "css-loader?sourceMap", "sass-loader?sourceMap"]
+            loaders: ['style-loader', 'css-loader?sourceMap', 'sass-loader?sourceMap']
         }, {
 			test: /\.json$/,
             exclude: ['/node_modules/'],
             loaders: ["custom-json-loader"]
 		}]
     },
-    watch: NODE_ENV === 'development',
+    watch: NODE_ENV !== 'production',
+    resolveLoader: {
+        alias: {
+            'custom-json-loader': path.join(__dirname, '/custom-json-loader')
+        }
+    },
     plugins: [
          new webpack.optimize.UglifyJsPlugin({
              compress: NODE_ENV === 'production'
