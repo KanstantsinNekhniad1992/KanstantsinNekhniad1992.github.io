@@ -1,11 +1,11 @@
 /*jshint esversion: 6 */
 'use strict';
 
-let getNewsLink = document.getElementById('get-news-link'),
-    config = require('./config'),
-    customLoaderResult = require('./test.json');
+let getNewsLink = document.getElementById('get-news-link');
 
-    console.dir(customLoaderResult);
+import config from './config';
+import customLoaderResult from './test.json';
+
 getNewsLink.addEventListener('click', function(e) {
     e.preventDefault();
 
@@ -33,3 +33,5 @@ getNewsLink.addEventListener('click', function(e) {
 
     }, 'articles');
 });
+
+console.dir(customLoaderResult);
