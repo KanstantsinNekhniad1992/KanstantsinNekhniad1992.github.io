@@ -2,9 +2,10 @@
 'use strict';
 
 let getNewsLink = document.getElementById('get-news-link'),
-    config = require('./config');
-require('./test.json');
+    config = require('./config'),
+    customLoaderResult = require('./test.json');
 
+    console.dir(customLoaderResult);
 getNewsLink.addEventListener('click', function(e) {
     e.preventDefault();
 
