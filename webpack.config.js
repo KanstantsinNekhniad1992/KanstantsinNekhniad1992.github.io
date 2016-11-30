@@ -26,16 +26,9 @@ module.exports = {
             exclude: ['/node_modules/'],
             loaders: ['style-loader', 'css-loader?sourceMap', 'sass-loader?sourceMap']
         }, {
-<<<<<<< HEAD
             test: /\.json$/,
             loader: "tojson!custom-json-loader"
         }]
-=======
-			test: /\.json$/,
-            exclude: ['/node_modules/'],
-            loaders: ["custom-json-loader"]
-		}]
->>>>>>> master
     },
     watch: NODE_ENV !== 'production',
     resolveLoader: {
@@ -44,15 +37,9 @@ module.exports = {
         }
     },
     plugins: [
-<<<<<<< HEAD
         new webpack.optimize.UglifyJsPlugin({
             compress: NODE_ENV === 'production'
         }),
-=======
-         new webpack.optimize.UglifyJsPlugin({
-             compress: NODE_ENV === 'production'
-         }),
->>>>>>> master
         new webpack.EnvironmentPlugin([
             "NODE_ENV"
         ]),
