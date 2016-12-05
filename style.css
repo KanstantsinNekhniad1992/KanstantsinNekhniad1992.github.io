@@ -34,3 +34,6 @@ a.powered-by {
 	text-decoration: none;
 }
 
+.show-spinner {
+	opacity: 0.3;
+}

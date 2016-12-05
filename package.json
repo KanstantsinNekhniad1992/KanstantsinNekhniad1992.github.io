@@ -41,6 +41,7 @@
   },
   "dependencies": {
     "es6-promises": "^1.0.10",
+    "lodash": "^4.17.2",
     "whatwg-fetch": "^2.0.1"
   }
 }
