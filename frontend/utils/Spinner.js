@@ -15,7 +15,7 @@ class Spinner {
 		document.body.classList.add(this._showSpinnerClass)
 	}
 
-	hideOverlay () {
+	hideSpinner () {
 		document.body.classList.remove(this._showSpinnerClass);
 	}
 }
