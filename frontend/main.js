@@ -1,12 +1,14 @@
 /*jshint esversion: 6 */
 'use strict';
 
+import style from './style.scss';
 import config from './config';
 import customLoaderResult from './test.json';
 import ArticleActions from './articles/article-actions';
 import ArticleStore from './articles/articles-store';
-import Subscriber from './utils/Subscriber';
+import Observer from './utils/Observer';
 import Spinner from './utils/Spinner';
+import Logger from './utils/Logger';
 
 let getNewsLink = document.getElementById('get-news-link'),
 	articlesHolder = document.getElementById('articles-list');
@@ -20,25 +22,22 @@ getNewsLink.addEventListener('click', function(e) {
             articles;
 
         require('./articles/articles.scss');
-		Subscriber.fire('show-spinner', Spinner);
+		Observer.notify('show-spinner', Spinner);
         articleService.getArticles({
             url: config.url,
             apiKey: config.apiKey
         }).then((result) => {
 			ArticleStore.setInitialArticles(result.articles);
 			ArticleStore.addLogListener(function () {
-				console.log(`Article ${this._title} was clicked`);
+				Logger.log(`Article ${this._title} was clicked`, 'log');
 			});
             articles = articleService.generateArticlesList(result.articles);
             articlesHolder.appendChild(articles);
             getNewsLink.classList += ' hidden';
-			Subscriber.fire('hide-spinner', Spinner);
+			Observer.notify('hide-spinner', Spinner);
         }).catch((error) => {
-
-            if (NODE_ENV === 'development') {
-                console.log('fetch error');
-            }
-			Subscriber.fire('hide-spinner', Spinner);
+			logger.log('fetch error', 'error');
+			Observer.notify('hide-spinner', Spinner);
         });
 
     }, 'articles');

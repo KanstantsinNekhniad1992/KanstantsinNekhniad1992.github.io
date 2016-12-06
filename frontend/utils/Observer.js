@@ -8,35 +8,35 @@ import {
     uniqueId
 } from 'lodash/fp';
 
-class Subscriber {
+class Observer {
 
 	constructor () {
-		this._subscribedEvents = {};
+		this._callbacks = {};
 	}
 
-	subscribe (eventName, callback) {
+	addObserver (eventName, callback) {
 
 		if (!isFunction(callback)) {
 			return;
 		}
 
-		let events = this._subscribedEvents[eventName];
+		let events = this._callbacks[eventName];
 
 		if (typeof events === 'undefined') {
-			events = this._subscribedEvents[eventName] = [];
+			events = this._callbacks[eventName] = [];
 		}
 
 		events.push(callback);
 	}
 
-	unsubscribe (eventName) {
-		delete this._subscribedEvents[eventName];
+	removeObserver (eventName) {
+		delete this._callbacks[eventName];
 	}
 
-	fire (eventName, context) {
+	notify (eventName, context) {
 
 		let i = 0,
- 			events = this._subscribedEvents[eventName],
+ 			events = this._callbacks[eventName],
 			len;
 
        for (len = events.length; i < len; i += 1) {
@@ -46,4 +46,4 @@ class Subscriber {
 	}
 }
 
-export default new Subscriber();
+export default new Observer();

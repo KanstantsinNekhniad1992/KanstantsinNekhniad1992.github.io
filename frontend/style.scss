@@ -35,5 +35,22 @@ a.powered-by {
 }
 
 .show-spinner {
-	opacity: 0.3;
+	.wrapper {
+		opacity: 0.3;
+	}
+
+	.spinner {
+		display: block;
+	}
+}
+
+.spinner {
+	display: none;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	height: 200px;
+	width: 200px;
+	background-image: url('./images/loader.gif');
+	background-repeat: no-repeat;
 }

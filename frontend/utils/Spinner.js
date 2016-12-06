@@ -1,14 +1,14 @@
 /*jshint esversion: 6 */
 'use strict';
 
-import Subscriber from './Subscriber';
+import Subscriber from './Observer';
 
 class Spinner {
 
 	constructor () {
 		this._showSpinnerClass = 'show-spinner';
-		Subscriber.subscribe('show-spinner', this.showSpinner);
-		Subscriber.subscribe('hide-spinner', this.hideSpinner);
+		Subscriber.addObserver('show-spinner', this.showSpinner);
+		Subscriber.addObserver('hide-spinner', this.hideSpinner);
 	}
 
 	showSpinner () {

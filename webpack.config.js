@@ -28,7 +28,10 @@ module.exports = {
         }, {
             test: /\.json$/,
             loader: "tojson!custom-json-loader"
-        }]
+        }, {
+			test: /\.gif$/,
+			loader: 'file?name=[name].[ext]'
+		}]
     },
     watch: NODE_ENV !== 'production',
     resolveLoader: {

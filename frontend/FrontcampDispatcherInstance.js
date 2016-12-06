@@ -1,7 +1,7 @@
 /*jshint esversion: 6 */
 'use strict';
 
-import FrontcampDispatcher from './FrontcampDispatcher';
+import FrontcampDispatcher from './utils/FrontcampDispatcher';
 
 let dispatcherInstance = new FrontcampDispatcher();
 
