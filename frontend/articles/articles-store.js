@@ -35,13 +35,20 @@ ArticleStore = Object.assign({}, EventEmitter.prototype, {
         this.emit('log')
     },
 
-    getAllArticles: function() {
-        return _articles;
-    }
+	addGetArticlesListener: function(callback) {
+		this.on('get_articles', callback);
+	},
+
+	removeGetArticlesListener: function(callback) {
+		this.on('get_articles', callback);
+	},
+
+	emitGetArticles: function () {
+		this.emit('get_articles');
+	}
 
     // here you can add addition methods (e.g getArticlesById, updateArticle)
 });
-
 
 Dispatcher.register(function(payload) {
     switch (payload.actionType) {
@@ -49,6 +56,9 @@ Dispatcher.register(function(payload) {
             ArticleStore._title = payload.title;
             ArticleStore.emitLog();
             break;
+		case actionTypes.GET_ARTICLES:
+			ArticleStore.emitGetArticles();
+			break;
     }
 });
 
