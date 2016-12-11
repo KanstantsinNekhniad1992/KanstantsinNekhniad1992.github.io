@@ -1,37 +1,29 @@
 /*jshint esversion: 6 */
 'use strict';
 
-let getNewsLink = document.getElementById('get-news-link');
-
-import config from './config';
+import style from './style.scss';
 import customLoaderResult from './test.json';
+import ArticleComponent from './articles/article-component';
+import ArticleActions from './articles/article-actions';
 
-getNewsLink.addEventListener('click', function(e) {
-    e.preventDefault();
+document.body.addEventListener('click', (e) => {
 
-    require.ensure([], function(require) {
+    if (e.target.id === 'article-title') {
+		var title = e.target.innerHTML;
+		ArticleActions.logArticle(title);
 
-        let articleService = require('./articles/article-service'),
-            articles,
-            articlesHolder = document.getElementById('articles-list');
+    } else if (e.target.id === 'get-news-link') {
+		e.preventDefault();
+		ArticleActions.getArticles();
+	}
 
-        require('./articles/articles.scss');
-
-        articleService.getArticles({
-            url: config.url,
-            apiKey: config.apiKey
-        }).then((result) => {
-            articles = articleService.generateArticlesList(result.articles);
-            articlesHolder.appendChild(articles);
-            getNewsLink.classList += ' hidden';
-        }).catch((error) => {
-
-            if (NODE_ENV === 'development') {
-                console.log('fetch error');
-            }
-        });
-
-    }, 'articles');
+	/*This is a facade pattern realization
+	In future we can add addition conditions.
+	For example:
+	if (e.target.id === 'some-id') {
+		doSomething();
+	}
+	*/
 });
 
 console.dir(customLoaderResult);

@@ -35,7 +35,7 @@ function generateArticlesList(articles) {
 							<p class="author">${article.author}</p>
 							<p class="date">Published at ${article.publishedAt}</p>
 						</div>
-						<h3 class="title">${article.title}</h3>
+						<h3 class="title" id="article-title">${article.title}</h3>
 						<img src='${article.urlToImage}' alt='${article.title}' />
 						<p class="description">${article.description}</p>
 						<div class="read-more-link"><a href='${article.url}'>Read more...</a></div>`;
