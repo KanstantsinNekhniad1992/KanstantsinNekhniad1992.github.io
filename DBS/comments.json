@@ -1,0 +1,155 @@
+[
+	{
+		"_id": "12345",
+		"author": "Vasya",
+		"text": "This is lie!!!",
+		"date": "2017-01-11T13:32:17Z",
+		"article_id": "article_1"
+	},
+	{
+		"_id": "12346",
+		"author": "Kostya",
+		"text": "This is not true!!!",
+		"date": "2017-01-11T13:32:17Z",
+		"article_id": "article_1"
+	},
+	{
+		"_id": "12347",
+		"author": "Masha",
+		"text": "This is awful!!!",
+		"date": "2016-12-14T13:32:17Z",
+		"article_id": "article_1"
+	},
+	{
+		"_id": "12348",
+		"author": "Max",
+		"text": "Bad people",
+		"date": "2016-12-14T13:32:17Z",
+		"article_id": "article_2"
+	},
+	{
+		"_id": "12349",
+		"author": "Kostya",
+		"text": "This my comment!!!",
+		"date": "2016-12-14T13:32:17Z",
+		"article_id": "article_2"
+	},
+	{
+		"_id": "12350",
+		"author": "Nastya",
+		"text": "This is awful!!!",
+		"date": "2016-12-14T13:32:17Z",
+		"article_id": "article_2"
+	},
+	{
+		"_id": "12351",
+		"author": "Max",
+		"text": "This is fantastic!!",
+		"date": "2016-12-14T13:32:17Z",
+		"article_id": "article_3"
+	},
+	{
+		"_id": "12352",
+		"author": "Kostya",
+		"text": "Finally",
+		"date": "2016-12-14T13:32:17Z",
+		"article_id": "article_3"
+	},
+	{
+		"_id": "12353",
+		"author": "Nastya",
+		"text": "This is cool!!!",
+		"date": "2016-12-14T13:32:17Z",
+		"article_id": "article_3"
+	},
+	{
+		"_id": "12354",
+		"author": "Vasya",
+		"text": "This is mistake!!",
+		"date": "2016-12-14T13:32:17Z",
+		"article_id": "article_5"
+	},
+	{
+		"_id": "12355",
+		"author": "Roma",
+		"text": "No No No",
+		"date": "2016-12-14T13:32:17Z",
+		"article_id": "article_5"
+	},
+	{
+		"_id": "12356",
+		"author": "Vova",
+		"text": "it's shame",
+		"date": "2016-12-14T13:32:17Z",
+		"article_id": "article_5"
+	},
+	{	"_id": "12357",
+		"author": "Vasya",
+		"text": "Why?",
+		"date": "2016-12-14T13:32:17Z",
+		"article_id": "article_6"
+	},
+	{
+		"_id": "12358",
+		"author": "Sergei",
+		"text": "This is terrible news",
+		"date": "2016-12-14T13:32:17Z",
+		"article_id": "article_6"
+	},
+	{
+		"_id": "12359",
+		"author": "Kostya",
+		"text": "Because it is true",
+		"date": "2016-12-14T13:32:17Z",
+		"article_id": "article_6"
+	},
+	{
+		"_id": "12360",
+		"author": "Masha",
+		"text": "WOW",
+		"date": "2016-12-14T13:32:17Z",
+		"article_id": "article_7"
+	},
+	{
+		"_id": "12361",
+		"author": "Roma",
+		"text": "Russian hackers",
+		"date": "2016-12-14T13:32:17Z",
+		"article_id": "article_7"
+	},
+	{
+		"_id": "12362",
+		"author": "Kostya",
+		"text": "comment!!!",
+		"date": "2016-12-14T13:32:17Z",
+		"article_id": "article_8"
+	},
+	{
+		"_id": "12363",
+		"author": "Masha",
+		"text": "Yeaaaaa",
+		"date": "2016-12-14T13:32:17Z",
+		"article_id": "article_8"
+	},
+	{
+		"_id": "12364",
+		"author": "Roma",
+		"text": "Empty comment",
+		"date": "2016-12-14T13:32:17Z",
+		"article_id": "article_8"
+	},
+	{
+		"_id": "12365",
+		"author": "Kostya",
+		"text": "He can not!",
+		"date": "2016-12-14T13:32:17Z",
+		"article_id": "article_9"
+	},
+	{
+		"_id": "12366",
+		"author": "Masha",
+		"text": "He can",
+		"date": "2016-12-14T13:32:17Z",
+		"article_id": "article_9"
+	}
+]
