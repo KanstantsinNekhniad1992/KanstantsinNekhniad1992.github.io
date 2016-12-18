@@ -10,57 +10,23 @@ const NODE_ENV = process.env.NODE_ENV || 'development';
 
 module.exports = {
     entry: {
-        main: dirSource + "/main.js"
+        main: dirSource + "/style.scss"
     },
     output: {
         path: dirBuild,
         publicPath: '/build/',
-        filename: '[name].js'
+        filename: '[name].css'
     },
     module: {
         loaders: [{
-            loader: 'babel-loader',
-            test: dirSource
-        }, {
             test: /\.scss$/,
             exclude: ['/node_modules/'],
             loaders: ['style-loader', 'css-loader?sourceMap', 'sass-loader?sourceMap']
-        }, {
-            test: /\.json$/,
-            loader: "tojson!custom-json-loader"
-        }, {
-			test: /\.gif$/,
-			loader: 'file?name=[name].[ext]'
-		}]
+        }]
     },
     watch: NODE_ENV !== 'production',
-    resolveLoader: {
-        alias: {
-            'custom-json-loader': path.join(__dirname, '/custom-json-loader')
-        }
-    },
     plugins: [
-        new webpack.optimize.UglifyJsPlugin({
-            compress: NODE_ENV === 'production'
-        }),
-        new webpack.EnvironmentPlugin([
-            "NODE_ENV"
-        ]),
-        new webpack.ProvidePlugin({
-            Promise: 'imports?this=>global!exports?global.Promise!es6-promises',
-            fetch: 'imports?this=>global!exports?global.fetch!whatwg-fetch'
-        }),
         new webpack.NoErrorsPlugin(),
-        new webpack.HotModuleReplacementPlugin(),
-        new webpack.DefinePlugin({
-            NODE_ENV: JSON.stringify(NODE_ENV)
-        })
-    ],
-    devtool: NODE_ENV === 'production' ? null : 'inline-source-map',
-    devServer: {
-        host: 'localhost',
-        port: '4000',
-        hot: true,
-        contentBase: "./"
-    }
+        new webpack.HotModuleReplacementPlugin()
+    ]
 };

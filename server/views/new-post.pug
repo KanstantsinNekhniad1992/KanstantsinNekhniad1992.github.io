@@ -1,0 +1,15 @@
+extends ./layout
+
+block main-content
+	form(method='POST', action='/new-post')
+		ul.new-post-wrapper
+			li
+				input(type='text', name='title', class='new-post-element', placeholder='title')
+			li
+				input(type='text', name='description', class='new-post-element', placeholder='description')
+			li
+				input(type='text', name='author', class='new-post-element', placeholder='author')
+			li
+				input(type='text', name='tags', class='new-post-element', placeholder='tags')
+				span.help-message Please write tags separated by commas
+		input(type='submit', value='Create new post', class='new-post-button')
