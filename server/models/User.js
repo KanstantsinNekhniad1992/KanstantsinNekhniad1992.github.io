@@ -1,5 +1,7 @@
 'use strict';
+
 let mongoose = require('mongoose'),
+    passport = require('passport'),
     encryption = require('../utilities/encryption');
 
 let userSchema = mongoose.Schema({
@@ -38,19 +40,19 @@ userSchema.methods.getUsers = function(req, res) {
 
 userSchema.methods.register = function(req, res) {
     let UserModel = mongoose.model('User'),
-		userData = {},
-		User;
+        userData = {},
+        User;
 
-	userData = {
-		firstName: req.body.firstName,
-		lastName: req.body.lastName,
-		userName: req.body.userName.toLowerCase()
-	}
+    userData = {
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        userName: req.body.userName.toLowerCase()
+    }
 
-	userData.salt = encryption.createSalt();
-	userData.hashed_pwd = encryption.hashPwd(userData.salt, req.body.password);
+    userData.salt = encryption.createSalt();
+    userData.hashed_pwd = encryption.hashPwd(userData.salt, req.body.password);
 
-	User = new UserModel(userData);
+    User = new UserModel(userData);
 
     User.save((err, user) => {
         if (err) {
@@ -61,12 +63,12 @@ userSchema.methods.register = function(req, res) {
         }
         req.logIn(user, (err) => {
             if (err) {
-				res.status(401);
-				res.send({
-	                reason: err.toString()
-	            });
+                res.status(401);
+                res.send({
+                    reason: err.toString()
+                });
             }
-            res.send(user);
+            res.redirect('/');
         })
     });
 };
@@ -100,19 +102,31 @@ userSchema.methods.updateUser = function(req, res) {
     })
 }
 
-userSchema.methods.logIn = function(req, res) {
+userSchema.methods.logIn = function(req, res, next) {
 
-    passport.authenticate('local', {
-            failureRedirect: '/login'
-        }),
-        function(req, res) {
-            res.redirect('/');
-        };
+    passport.authenticate('local', function(err, user) {
+
+        if (err) {
+            return next(err);
+        }
+
+        if (!user) {
+            res.redirect('/'); //will be changed after moce rendering on frontend side
+        }
+
+        req.logIn(user, function(err) {
+            if (err) {
+                return next(err);
+            }
+            res.redirect('/'); //will be changed after moce rendering on frontend side
+        })
+
+    })(req, res, next);
 }
 
-userSchema.methods.logOut = function (req, res) {
-	req.logout();
-	res.redirect('/');
+userSchema.methods.logOut = function(req, res) {
+    req.logout();
+    res.redirect('/');
 }
 
 mongoose.model('User', userSchema);

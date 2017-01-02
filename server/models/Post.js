@@ -28,9 +28,17 @@ postSchema.methods.getAllPosts = function(req, res) {
         if (err) {
             res.status(err.status).send(err.message);
         }
-        res.render('index', { //will be changed when rendering move on frontend side
-            posts: collection
-        });
+		if (req.isAuthenticated()) {
+			res.render('index', { //will be changed when rendering move on frontend side
+	            posts: collection,
+				user: req.user
+	        });
+		} else {
+			res.render('index', {
+				posts: collection,
+				user: null
+			});
+		}
     });
 }
 

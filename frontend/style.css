@@ -24,11 +24,17 @@ header {
 .nav-bar {
 	height: 50px;
 	padding: 5px;
+	padding-top: 15px;
 	background: #e7e7e7;
+	box-sizing: border-box;
 }
 
 .nav-bar-menu {
-	padding-top: 15px;
+	float: left;
+}
+
+.identity-container {
+	float: right;
 }
 
 .menu-item {
@@ -40,6 +46,7 @@ header {
 	text-decoration: none;
 }
 
+.new-user-wrapper li,
 .new-post-wrapper li {
 	margin-bottom: 20px;
 }
@@ -113,6 +120,7 @@ a.powered-by {
 	margin-right: 10px;
 }
 
+.new-user-element,
 .new-post-element {
 	width: 50%;
 	height: 20px;
@@ -125,6 +133,14 @@ form {
 	padding: 5px;
 	border: 1px solid #aaa;
 	border-radius: 3px;
+}
+
+.logout-container {
+	float: right;
+}
+
+.user-info {
+	margin-right: 10px;
 }
 
 .help-message {

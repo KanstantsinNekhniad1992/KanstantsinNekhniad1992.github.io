@@ -1,0 +1,14 @@
+extends ./layout
+
+block main-content
+	form(method='POST', action='/register', enctype="application/x-www-form-urlencoded")
+		ul.new-user-wrapper
+			li
+				input(type='text', name='firstName', class='new-user-element', placeholder='First Name')
+			li
+				input(type='text', name='lastName', class='new-user-element', placeholder='Last Name')
+			li
+				input(type='text', name='userName', class='new-user-element', placeholder='Username')
+			li
+				input(type='password', name='password', class='new-user-element', placeholder='password')
+		input(type='submit', value='Create user', class='new-user-button')

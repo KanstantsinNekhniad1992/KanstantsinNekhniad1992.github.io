@@ -5,7 +5,7 @@ module.exports = function(app) {
 
     app.get('/', postController.getAllPosts);
     app.get('/post/:id', postController.getPost);
-	app.get('/new-post', function(req, res) {
+	app.get('/new-post', function(req, res) { //will be changes after moving rendering on frontend side
 		res.render('new-post');
 	});
 	app.post('/new-post', postController.createPost);
