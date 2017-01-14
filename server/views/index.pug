@@ -1,0 +1,17 @@
+extends ./layout
+
+block main-content
+	div.wrapper
+		div.content
+			ul.articles-list
+				each post in posts
+					li.article
+						div.article-source.clearfix
+							p.author #{post.author}
+							p.date Published at #{post.date}
+						h3.title #{post.title}
+						p.description #{post.description}
+						h5 Tags
+						ul.tags-list.clearfix
+							each val in post.tags
+								li #{val}
