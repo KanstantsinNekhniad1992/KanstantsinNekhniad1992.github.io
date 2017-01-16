@@ -1,7 +1,7 @@
 'use strict';
 import React from 'react';
 import {render} from 'react-dom';
-import '../styles/style.scss';
+import '../../styles/style.scss';
 import Header from './components/header/Header';
 
 class App extends React.Component {
