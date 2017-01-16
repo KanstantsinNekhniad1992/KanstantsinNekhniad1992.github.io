@@ -3,25 +3,6 @@ html(lang="en")
 	head
 		meta(name='viewport', content='initial-scale=1, maximum-scale=1')
 		title FrontCamp NodeJs
-		link(rel="stylesheet" href="/style.css")
 	body
-		nav.nav-bar.clearfix
-			ul.nav-bar-menu.clearfix
-				li.menu-item
-					a(href='/') Home
-				li.menu-item
-					a(href='/new-post') Create New Post
-			if !user
-				div.identity-container
-					form(class='login-form', id='login-form', method='POST', action='/login', enctype="application/x-www-form-urlencoded")
-						input(type='text', name='username', class='username-field', placeholder='username')
-						input(type='password', name='password', class='password-field', placeholder='password')
-						input(type='submit', value='LogIn', id='login-buttom')
-					a(href='/register', class='register-link') SignUp
-			else
-				div.logout-container
-					span.user-info #{user.firstName} #{user.lastName}
-					a(href='/logout') LogOut
-		header Front Camp Node JS
 		block main-content
-		script(src='/build/login.js')
+		script(src='/index.js')

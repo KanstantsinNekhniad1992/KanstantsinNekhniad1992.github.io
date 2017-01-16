@@ -1,0 +1,34 @@
+.article {
+	max-width: 600px;
+	padding: 10px;
+	margin-bottom: 25px;
+	box-shadow: 0 1px 4px rgba(0,0,0,.04);
+	border: 1px solid rgba(0,0,0,.09);
+	border-radius: 3px;
+	background: #fff;
+	list-style-type: none;
+
+	img {
+		max-width: 100%;
+	}
+}
+.author {
+	float: left;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.date {
+	float: right;
+}
+
+.read-more-link {
+	a {
+	  font-style: italic;
+	}
+}
+
+.tags-list li {
+	float: left;
+	margin-right: 10px;
+}

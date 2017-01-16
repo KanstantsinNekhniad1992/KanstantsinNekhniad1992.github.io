@@ -28,17 +28,8 @@ postSchema.methods.getAllPosts = function(req, res) {
         if (err) {
             res.status(err.status).send(err.message);
         }
-		if (req.isAuthenticated()) {
-			res.render('index', { //will be changed when rendering move on frontend side
-	            posts: collection,
-				user: req.user
-	        });
-		} else {
-			res.render('index', {
-				posts: collection,
-				user: null
-			});
-		}
+
+		res.send(collection);
     });
 }
 
@@ -58,7 +49,7 @@ postSchema.methods.createPost = function(req, res) {
         if (err) {
             res.status(500).send(err.message);
         }
-        res.redirect('/'); //will be changed when rendering move on frontend side
+        res.send('Post was successfully added.');
     });
 }
 
@@ -97,7 +88,7 @@ postSchema.methods.removePost = function(req, res) {
         if (err) {
             res.status(500).send(err.message);
         }
-        res.json('post was deleted successfully');
+        res.send('post was deleted successfully.');
     });
 }
 

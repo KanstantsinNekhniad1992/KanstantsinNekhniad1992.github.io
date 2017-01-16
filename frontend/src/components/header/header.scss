@@ -1,0 +1,26 @@
+header {
+	text-align: center;
+    padding: 20px;
+    font-weight: bold;
+}
+
+.nav-bar {
+	height: 50px;
+	padding: 5px;
+	padding-top: 15px;
+	background: #e7e7e7;
+	box-sizing: border-box;
+}
+
+.nav-bar-menu {
+	float: left;
+}
+
+.menu-item {
+	float: left;
+	margin-right: 10px;
+}
+
+.menu-item a {
+	text-decoration: none;
+}

@@ -68,7 +68,7 @@ userSchema.methods.register = function(req, res) {
                     reason: err.toString()
                 });
             }
-            res.redirect('/');
+            res.json(user);
         })
     });
 };
@@ -107,18 +107,24 @@ userSchema.methods.logIn = function(req, res, next) {
     passport.authenticate('local', function(err, user) {
 
         if (err) {
-            return next(err);
+			req.status(401);
+            return res.send({
+                reason: err.toString()
+            });
         }
 
         if (!user) {
-            res.redirect('/'); //will be changed after moce rendering on frontend side
+			req.status(401);
+            return res.send({
+                reason: 'user with these username or password is not exist'
+            });
         }
 
         req.logIn(user, function(err) {
             if (err) {
                 return next(err);
             }
-            res.redirect('/'); //will be changed after moce rendering on frontend side
+            res.json(user); //will be changed after moce rendering on frontend side
         })
 
     })(req, res, next);
@@ -126,7 +132,7 @@ userSchema.methods.logIn = function(req, res, next) {
 
 userSchema.methods.logOut = function(req, res) {
     req.logout();
-    res.redirect('/');
+    res.redirect(req.url);
 }
 
 mongoose.model('User', userSchema);

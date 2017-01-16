@@ -10,12 +10,12 @@ const NODE_ENV = process.env.NODE_ENV || 'development';
 
 module.exports = {
     entry: {
-        main: dirSource + "/src/login.js"
+        main: dirSource + "/src/index.js"
     },
     output: {
         path: dirBuild,
         publicPath: '/build/',
-        filename: 'login.js'
+        filename: 'index.js'
     },
 	devtool: 'eval-source-map',
     module: {
@@ -25,12 +25,16 @@ module.exports = {
             loaders: ['style-loader', 'css-loader?sourceMap', 'sass-loader?sourceMap']
         }, {
 			test: /\.js$/,
-			loader: 'babel'
+			loader: 'babel-loader'
 		}]
     },
     watch: NODE_ENV !== 'production',
     plugins: [
         new webpack.NoErrorsPlugin(),
-        new webpack.HotModuleReplacementPlugin()
+        new webpack.HotModuleReplacementPlugin(),
+		new webpack.SourceMapDevToolPlugin({
+			include: ['frontend/*.js'],
+			exclude: ['server/*.js']
+		})
     ]
 };
