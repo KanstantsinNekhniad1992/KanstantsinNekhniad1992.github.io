@@ -4,10 +4,12 @@ import * as types from '../actions/actionTypes';
 import initialState from './initialState';
 
 export default function articleReducer(state = initialState, action) {
-
+	debugger;
 	switch (action.type) {
 		case types.GET_ARTICLES_SUCCESS:
-			return Object.assign([], state, action.articles);
+			return Object.assign({}, state, {
+				articles: action.articles
+			});
 		// case types.GET_ARTICLE_SUCCESS:
 		// 	return action.article;
 		// case types.CREATE_ARTICLE_SUCCESS:

@@ -1,10 +1,10 @@
 'use strict';
 
 import {combineReducers} from 'redux';
-import actionReducer from './articleReducer';
+import articleReducer from './articleReducer';
 
 const rootReducers = combineReducers({
-    actionReducer
+	articleReducer
 });
 
 export default rootReducers;
