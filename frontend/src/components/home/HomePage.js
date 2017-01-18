@@ -1,18 +1,24 @@
 'use strict';
 import React from 'react';
-import ArticlesList from '../articles/articlesList/ArticlesListComponent';
+import {connect} from 'react-redux';
+import ArticlesList from '../articles/ArticlesListComponent';
+import {getArticles} from '../../actions/articleActions';
 
 class HomePage extends React.Component {
 
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
+		// if (!props.articles) {
+		// 	props.actions.getArticles();
+		// }
 	}
 
 	render () {
+		let {articles} = this.props;
 
 		return (
 			<div className="wrapper">
-				<ArticlesList/>
+				<ArticlesList articles={articles}/>
 			</div>
 		);
 
@@ -20,4 +26,12 @@ class HomePage extends React.Component {
 
 }
 
-export default HomePage;
+function mapStateToProps (state, props) {
+	return {
+		articles: state.articles
+	}
+}
+
+
+
+export default connect(mapStateToProps)(HomePage);
