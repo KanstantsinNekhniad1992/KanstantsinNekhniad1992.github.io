@@ -20,21 +20,21 @@ export const getArticleSuccess = function (id) {
 export const createArticleSuccess = function (article) {
 	return {
 		type: types.CREATE_ARTICLE_SUCCESS,
-		article: article
+		article
 	}
 };
 
 export const editArticleSuccess = function (article) {
 	return {
 		type: types.EDIT_ARTICLE_SUCCESS,
-		article: article
+		article
 	}
 };
 
 export const removeArticleSuccess = function (message) {
 	return {
 		type: types.REMOVE_ARTICLE_SUCCESS,
-		message: message
+		message
 	};
 };
 

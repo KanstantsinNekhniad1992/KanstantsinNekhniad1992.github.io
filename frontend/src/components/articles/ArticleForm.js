@@ -10,7 +10,7 @@ class ArticleForm extends React.Component {
 
 	render() {
 
-		let {onChange, article = {}, onClick, onCancel} = this.props;
+		let {onChange, article = {}, onSubmit, onCancel, buttonName} = this.props;
 
 		return (
 			<div className="article-details">
@@ -29,7 +29,7 @@ class ArticleForm extends React.Component {
 							<input type="text" name="tags" className="form-control" placeholder="Tags" onChange={onChange} value={article.tags}/>
 						</li>
 					</ul>
-					<input type="submit" id="edit-button" onClick={onClick} className="form-control btn" value="Edit"/>
+					<input type="submit" id="edit-button" onClick={onSubmit} className="form-control btn" value={buttonName}/>
 					<input type="button" id="cancel-button" onClick={onCancel} className="form-control btn" value="Cancel"/>
 				</form>
 			</div>

@@ -1,6 +1,7 @@
 import React from 'react';
 import './header.scss';
 import Identity from '../identity/Identity';
+import {Link} from 'react-router';
 
 class Header extends React.Component {
 
@@ -17,7 +18,7 @@ class Header extends React.Component {
 						<a href="/">Home</a>
 					</li>
 					<li className="menu-item">
-						<a href="/new-post">Create new post</a>
+						<Link to='/new-post'>Create new post</Link>
 					</li>
 				</ul>
 				<Identity/>

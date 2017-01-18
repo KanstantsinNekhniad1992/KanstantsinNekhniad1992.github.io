@@ -20,12 +20,10 @@ export default function articleReducer(state = initialState, action) {
 			return Object.assign({}, {
 				article: article || {}
 			});
-		// case types.CREATE_ARTICLE_SUCCESS:
-		// 	return action.article;
-		// case types.EDIT_ARTICLE_SUCCESS:
-		// 	return action.article;
-		// case types.REMOVE_ARTICLE_SUCCESS:
-		// 	return action.message;
+		case types.EDIT_ARTICLE_SUCCESS:
+			return state;
+		case types.REMOVE_ARTICLE_SUCCESS:
+			return action.message;
 		default:
 			return state;
 	}

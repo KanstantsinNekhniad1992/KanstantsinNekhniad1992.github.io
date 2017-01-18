@@ -42,7 +42,7 @@ postSchema.methods.createPost = function(req, res) {
         description: req.body.description,
         author: req.body.author,
         date: new Date(),
-        tags: req.body.tags.split(', ')
+        tags: req.body.tags
     });
 
     Post.save((err) => {
@@ -66,7 +66,11 @@ postSchema.methods.getPost = function(req, res) {
 }
 
 postSchema.methods.updatePost = function(req, res) {
-    let _id = req.params.id;
+    let _id = req.params.id,
+	updatedEvent;
+
+	updatedEvent = req.body;
+
     this.model('Post').update({
         _id: ObjectId(_id)
     }, {

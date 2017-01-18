@@ -3,9 +3,7 @@
 class PostApi {
 
 	constructor() {
-		this.headers = {
-			'Content-Type': 'application/x-www-form-urlencoded'
-		}
+
 	}
 
 	static createPost(post) {
@@ -14,8 +12,10 @@ class PostApi {
 
 		promise = fetch('/new-post', {
 			method: 'POST',
-			headers: this.headers,
-			body: JSON.stringify({post: post})
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify(post)
 		}).then(function (response) {
 			return response.json();
 		});
@@ -42,8 +42,10 @@ class PostApi {
 
 		promise = fetch('/update-post/' + post._id, {
 			method: 'PUT',
-			headers: this.headers,
-			body: JSON.stringify({post: post})
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify(post)
 		}).then(function (response) {
 			return response.json();
 		});
