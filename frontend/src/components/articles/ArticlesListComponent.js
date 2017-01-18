@@ -10,12 +10,12 @@ class ArticlesList extends React.Component {
     render() {
 
         let {articles = []} = this.props;
-
+		
 		return (
 			<ul className="articles-list">
 			   {articles.map((item) =>
 				   <li key={item._id}>
-					   <Article article={item}/>
+				   		<Article article={item}/>
 				   </li>
 			   )}
 			</ul>

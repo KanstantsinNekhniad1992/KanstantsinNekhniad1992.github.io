@@ -36,7 +36,6 @@ class PostApi {
 		return promise;
 	}
 
-
 	static updatePost(post) {
 
 		let promise;

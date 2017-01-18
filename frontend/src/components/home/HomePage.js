@@ -9,7 +9,6 @@ class HomePage extends React.Component {
 
 	constructor(props) {
 		super(props);
-		debugger;
 		if (!props.articles) {
 			props.actions.getArticles();
 		}
@@ -29,7 +28,6 @@ class HomePage extends React.Component {
 }
 
 function mapStateToProps (state, props) {
-	debugger;
 	return {
 		articles: state.articleReducer.articles
 	}

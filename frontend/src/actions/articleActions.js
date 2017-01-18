@@ -10,10 +10,10 @@ export const getArticlesSuccess = function (articles) {
 	}
 };
 
-export const getArticleSuccess = function (article) {
+export const getArticleSuccess = function (id) {
 	return {
 		type: types.GET_ARTICLE_SUCCESS,
-		article: article
+		id
 	}
 };
 
@@ -53,11 +53,7 @@ export const getArticles = function () {
 export const getArticle = function (id) {
 
 	return function (dispatch) {
-		return postApi.getPost(id).then((article) => {
-			dispatch(getArticleSuccess(article));
-		}).catch(function (error) {
-			console.log('get article thrown with error: ' + error.message);
-		});
+		return dispatch(getArticleSuccess(id));
 	}
 
 };

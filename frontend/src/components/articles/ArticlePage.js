@@ -1,21 +1,20 @@
 'use strict';
 
 import React from 'react';
-import {brrowserHistory} from 'react-router';
+import {browserHistory} from 'react-router';
 import ArticleForm from './ArticleForm';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import * as actions from '../../actions/articleActions';
 
 class ArticlePage extends React.Component {
 
 	constructor(props) {
 		super(props);
-		this.state = {
-			article: {
-				title: '',
-				author: '',
-				description: '',
-				date: ''
-			}
-		};
+		if(!this.props.article) {
+			this.props.actions.getArticle(this.props.params.id);
+		}
+
 		this.updateArticleState = this.updateArticleState.bind(this);
 		this.saveArticle = this.saveArticle.bind(this);
 		this.backToArticlesList = this.backToArticlesList.bind(this);
@@ -28,23 +27,25 @@ class ArticlePage extends React.Component {
 
 	updateArticleState(event) {
 		let field = event.target.name;
-		let article = this.state.article;
+		let article = this.props.article;
 		article[field] = event.target.value;
 		this.setState({article: article});
 	}
 
 	backToArticlesList() {
-		browserHistory.push('/articles');
+		browserHistory.push('/');
 	}
 
 	render() {
 
+		let {article = {}} = this.props;
+
 		return (
 			<ArticleForm
-				article: {this.state.article}
-				onChange: {updateArticleState}
-				onSave: {saveArticle}
-				onCancel: {backToArticlesList}
+				article= {article}
+				onChange= {this.updateArticleState}
+				onSave= {this.saveArticle}
+				onCancel= {this.backToArticlesList}
 			/>
 		);
 
@@ -52,4 +53,14 @@ class ArticlePage extends React.Component {
 
 }
 
-export default ArticlePage;
+function mapStateToProps(state, props) {
+	return {
+		article: state.articleReducer.article
+	}
+}
+
+function mapDispatchToProps (dispatch) {
+	return {actions: bindActionCreators(actions, dispatch)}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ArticlePage);
