@@ -1,17 +1,33 @@
 'use strict';
-let express = require('express'),
-    config,
-    app = express();
+import express from 'express';
+import webpack from 'webpack';
+import webpackConfig from './webpack.config';
+import expressConfig from './server/config/config';
 
-config = require('./server/config/config');
+const app = express();
+const compiler = webpack(webpackConfig);
 
-require('./server/config/express.js')(app, config);
+compiler.plugin('compile', function() {
+    console.log('Bundling...');
+});
 
-require('./server/config/mongoose.js')(config);
+compiler.plugin('done', function() {
+    console.log('Bundled done');
+});
 
+app.use(require('webpack-dev-middleware')(compiler, {
+	hot: true,
+    quiet: false,
+    noInfo: true,
+    stats: {
+      colors: true
+    }
+}));
+
+require('./server/config/express.js')(app, expressConfig);
+require('./server/config/mongoose.js')(expressConfig);
 require('./server/config/routes.js')(app);
-
 require('./server/config/passport')();
 
-app.listen(config.port);
-console.log('Server running on port ' + config.port);
+app.listen(expressConfig.port);
+console.log('Server running on port ' + expressConfig.port);

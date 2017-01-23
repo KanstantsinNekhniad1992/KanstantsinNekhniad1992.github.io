@@ -107,18 +107,24 @@ userSchema.methods.logIn = function(req, res, next) {
     passport.authenticate('local', function(err, user) {
 
         if (err) {
-            return next(err);
+			req.status(401);
+            return res.send({
+                reason: err.toString()
+            });
         }
 
         if (!user) {
-            res.redirect('/'); //will be changed after moce rendering on frontend side
+			req.status(401);
+            return res.send({
+                reason: 'user is not found'
+            });
         }
 
         req.logIn(user, function(err) {
             if (err) {
                 return next(err);
             }
-            res.redirect('/'); //will be changed after moce rendering on frontend side
+            res.send(user);
         })
 
     })(req, res, next);
