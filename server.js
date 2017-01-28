@@ -15,6 +15,11 @@ compiler.plugin('done', function() {
     console.log('Bundled done');
 });
 
+require('./server/config/express.js')(app, expressConfig);
+require('./server/config/mongoose.js')(expressConfig);
+require('./server/config/routes.js')(app);
+require('./server/config/passport')();
+
 app.use(require('webpack-dev-middleware')(compiler, {
 	hot: true,
     quiet: false,
@@ -23,11 +28,6 @@ app.use(require('webpack-dev-middleware')(compiler, {
       colors: true
     }
 }));
-
-require('./server/config/express.js')(app, expressConfig);
-require('./server/config/mongoose.js')(expressConfig);
-require('./server/config/routes.js')(app);
-require('./server/config/passport')();
 
 app.listen(expressConfig.port);
 console.log('Server running on port ' + expressConfig.port);

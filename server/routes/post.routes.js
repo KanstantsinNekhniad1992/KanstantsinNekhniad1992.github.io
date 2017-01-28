@@ -4,9 +4,9 @@ let postController = require('../controllers/posts');
 module.exports = function(app) {
 
     app.get('/posts', postController.getAllPosts);
-    app.get('/post/:id', postController.getPost);
-	app.post('/new-post', postController.createPost);
-    app.put('/update-post/:id', postController.updatePost);
-    app.delete('/remove-post/:id', postController.removePost);
+    app.get('/posts/:id', postController.getPost);
+	app.post('/posts', postController.createPost);
+    app.put('/posts/:id', postController.updatePost);
+    app.delete('/posts/:id', postController.removePost);
 
 }

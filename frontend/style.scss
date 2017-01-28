@@ -33,7 +33,7 @@ header {
 	float: left;
 }
 
-.identity-container {
+.login-container {
 	float: right;
 }
 
@@ -49,6 +49,36 @@ header {
 .new-user-wrapper li,
 .new-post-wrapper li {
 	margin-bottom: 20px;
+}
+
+.new-user-element,
+.new-post-element,
+.form-control {
+	width: 50%;
+	height: 20px;
+	padding-left: 5px;
+	font-size: 16px;
+}
+
+.form-control {
+
+	&.btn {
+		width: 70px;
+		font-size: 14px;
+	}
+
+}
+
+form {
+	max-width: 700px;
+	padding: 5px;
+	border: 1px solid #aaa;
+	border-radius: 3px;
+}
+
+.help-message {
+	font-size: 14px;
+	font-style: italic;
 }
 
 .content {
@@ -120,14 +150,6 @@ a.powered-by {
 	margin-right: 10px;
 }
 
-.new-user-element,
-.new-post-element {
-	width: 50%;
-	height: 20px;
-	padding-left: 5px;
-	font-size: 16px;
-}
-
 form {
 	max-width: 700px;
 	padding: 5px;
@@ -141,9 +163,4 @@ form {
 
 .user-info {
 	margin-right: 10px;
-}
-
-.help-message {
-	font-size: 14px;
-	font-style: italic;
 }

@@ -1,14 +1,13 @@
 <!DOCTYPE html>
-<html>
-	<head ng-app="FrontCampApp">
+<html ng-app="FrontCampApp">
+	<head>
 		<meta charset="utf-8">
 		<title>FontCamp Title</title>
+		<base href="/">
 	</head>
 	<body>
-		<article-list></article-list>
-		<div ng-controller="HomeController">
-			{{greeting}}
-		</div>
+		<ng-include src="'/partials/header.html'"></ng-include>
+		<ui-view></ui-view>
 		<script type="text/javascript" src="/index.js"></script>
 	</body>
 </html>

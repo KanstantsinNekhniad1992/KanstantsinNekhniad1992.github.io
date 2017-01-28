@@ -41,7 +41,7 @@ postSchema.methods.createPost = function(req, res) {
         description: req.body.description,
         author: req.body.author,
         date: new Date(),
-        tags: req.body.tags.split(', ')
+        tags: req.body.tags
     });
 
     Post.save((err) => {

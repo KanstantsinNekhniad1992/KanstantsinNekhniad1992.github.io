@@ -1,6 +1,8 @@
 /*jshint esversion: 6 */
 'use strict';
 
+import ngAnnotatePlugin from 'ng-annotate-webpack-plugin';
+
 let webpack = require('webpack'),
     path = require('path'),
     dirSource = path.resolve(__dirname, 'frontend'),
@@ -20,6 +22,9 @@ module.exports = {
 	devtool: 'eval-source-map',
     module: {
         loaders: [{
+			test: /\.css$/,
+        	loaders: [ 'style-loader', 'css-loader']
+		},{
             test: /\.scss$/,
             exclude: ['/node_modules/'],
             loaders: ['style-loader', 'css-loader?sourceMap', 'sass-loader?sourceMap']
@@ -35,6 +40,9 @@ module.exports = {
 		new webpack.SourceMapDevToolPlugin({
 			include: ['frontend/*.js'],
 			exclude: ['server/*.js']
-		})
+		}),
+		new ngAnnotatePlugin({
+            add: true
+        })
     ]
 };

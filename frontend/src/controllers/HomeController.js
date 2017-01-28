@@ -3,10 +3,10 @@
 class HomeController {
 
     constructor($scope) {
+		"ngInject";
         $scope.greeting = 'Hello FrontCamp';
     }
 
 }
 
-HomeController.$inject = ['$scope'];
 export default HomeController;
