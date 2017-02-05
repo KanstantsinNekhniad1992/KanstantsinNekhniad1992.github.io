@@ -28,17 +28,7 @@ postSchema.methods.getAllPosts = function(req, res) {
         if (err) {
             res.status(err.status).send(err.message);
         }
-		if (req.isAuthenticated()) {
-			res.render('index', { //will be changed when rendering move on frontend side
-	            posts: collection,
-				user: req.user
-	        });
-		} else {
-			res.render('index', {
-				posts: collection,
-				user: null
-			});
-		}
+		res.json(collection);
     });
 }
 
@@ -51,14 +41,14 @@ postSchema.methods.createPost = function(req, res) {
         description: req.body.description,
         author: req.body.author,
         date: new Date(),
-        tags: req.body.tags.split(', ')
+        tags: req.body.tags
     });
 
     Post.save((err) => {
         if (err) {
             res.status(500).send(err.message);
         }
-        res.redirect('/'); //will be changed when rendering move on frontend side
+        res.json(Post);
     });
 }
 
@@ -75,7 +65,9 @@ postSchema.methods.getPost = function(req, res) {
 }
 
 postSchema.methods.updatePost = function(req, res) {
-    let _id = req.params.id;
+    let _id = req.params.id,
+		updatedEvent = req.body;
+
     this.model('Post').update({
         _id: ObjectId(_id)
     }, {

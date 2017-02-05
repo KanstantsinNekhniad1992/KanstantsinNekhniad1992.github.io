@@ -6,8 +6,7 @@ let express = require('express'),
     passport = require('passport');
 
 module.exports = function(app, config) {
-    app.set('views', config.rootPath + '/server/views');
-    app.set('view engine', 'pug');
+    app.use(express.static(config.rootPath + '/frontend/views'));
     app.use(cookieParser());
     app.use(session({
         secret: 'koS',
