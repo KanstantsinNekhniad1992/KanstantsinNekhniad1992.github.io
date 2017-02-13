@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack",
-    "start": "babel-node server"
+    "start": "babel-node server",
+    "test": "karma start",
+    "test:local": "karma start --browsers PhantomJS --single-run false",
+    "test:debug": "karma start --browsers Chrome --single-run false --debug"
   },
   "repository": {
     "type": "git",
@@ -31,17 +34,9 @@
     "exports-loader": "^0.6.3",
     "file-loader": "^0.9.0",
     "imports-loader": "^0.6.5",
-    "jasmine": "^2.5.3",
     "json-loader": "^0.5.4",
-    "karma": "^1.4.1",
-    "karma-chrome-launcher": "^2.0.0",
-    "karma-coverage": "^1.1.1",
-    "karma-jasmine": "^1.1.0",
-    "karma-phantomjs-launcher": "^1.0.2",
-    "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "^2.0.2",
     "ng-annotate-webpack-plugin": "^0.2.1-pre",
-    "ng-html2js": "^3.0.0",
     "node-sass": "^3.13.0",
     "sass-loader": "^4.0.2",
     "style-loader": "^0.13.1",
@@ -52,7 +47,6 @@
   "dependencies": {
     "angular": "^1.6.1",
     "angular-animate": "^1.6.1",
-    "angular-mocks": "^1.6.1",
     "angular-resource": "^1.6.1",
     "angular-toastr": "^2.1.1",
     "angular-ui-router": "^0.4.2",
